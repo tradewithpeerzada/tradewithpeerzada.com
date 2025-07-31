@@ -8,12 +8,14 @@
   <body>
     <script>
       window.CMS_MANUAL_INIT = true;
-      const config = {
-        backend: {
-          name: "github",
-          repo: "your-username/tradewithpeerzada.com", // 🔁 replace this
-          branch: "main"
-        },
+      const config = {backend: {
+  name: "github",
+  repo: "tradewithpeerzada/tradewithpeerzada.com",
+  branch: "main",
+  auth_scope: "repo",
+  client_id: "YOUR_CLIENT_ID"
+}
+
         media_folder: "assets/images",
         public_folder: "/assets/images",
         collections: [
