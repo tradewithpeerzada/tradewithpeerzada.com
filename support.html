@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support – Trade With Peerzada</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .support-container {
+      max-width: 600px;
+      margin: 60px auto;
+      padding: 30px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #fefefe;
+    }
+    .chat-box {
+      height: 250px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 15px;
+      background-color: #fff;
+    }
+    .bot, .user {
+      margin-bottom: 10px;
+    }
+    .bot {
+      color: #2c3e50;
+    }
+    .user {
+      color: #27ae60;
+      text-align: right;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="support-container">
+    <h2>Support Chat</h2>
+    <div class="chat-box" id="chat-box">
+      <div class="bot">🤖 Hello, welcome to Trade With Peerzada.</div>
+    </div>
+    <form id="support-form">
+      <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off" />
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('support-form');
+    const input = document.getElementById('user-input');
+    const chatBox = document.getElementById('chat-box');
+
+    const responses = {
+      crypto: "We provide real-time crypto signals for BTC, ETH, and more.",
+      forex: "We offer Forex signals like EUR/USD, GBP/USD with clear TP and SL.",
+      contact: "You can contact us on WhatsApp: 03240603621",
+      signals: "You’ll get daily signals for crypto, forex, and indexes.",
+      help: "Our support team is always here. Just tell us your question.",
+    };
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const message = input.value.trim();
+      if (message === "") return;
+
+      // Show user's message
+      const userMsg = document.createElement('div');
+      userMsg.className = 'user';
+      userMsg.innerText = message;
+      chatBox.appendChild(userMsg);
+
+      // Check for keyword reply
+      let found = false;
+      for (const keyword in responses) {
+        if (message.toLowerCase().includes(keyword)) {
+          const botMsg = document.createElement('div');
+          botMsg.className = 'bot';
+          botMsg.innerText = "🤖 " + responses[keyword];
+          chatBox.appendChild(botMsg);
+          found = true;
+          break;
+        }
+      }
+
+      if (!found) {
+        const botMsg = document.createElement('div');
+        botMsg.className = 'bot';
+        botMsg.innerText = "🤖 I'm sorry, I don't understand. Please try a different question.";
+        chatBox.appendChild(botMsg);
+      }
+
+      input.value = "";
+      chatBox.scrollTop = chatBox.scrollHeight;
+    });
+  </script>
+</body>
+</html>
