@@ -1,0 +1,10 @@
+# Enable GitHub Pages and CMS
+title: Trade With Peerzada
+description: Professional trading signals for Forex, Crypto, and Index markets
+baseurl: "" # Leave empty for user.github.io/repo-name sites
+url: "https://tradewithpeerzada
+
+# Needed for StaticCMS + GitHub Pages
+collections_dir: signals
+plugins:
+  - jekyll-feed
