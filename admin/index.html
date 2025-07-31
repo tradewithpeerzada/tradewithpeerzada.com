@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Admin – Trade With Peerzada</title>
+    <script src="https://unpkg.com/@staticcms/app@^3.0.0/dist/static-cms-app.js"></script>
+  </head>
+  <body>
+    <script>
+      window.CMS_MANUAL_INIT = true;
+      const config = {
+        backend: {
+          name: "github",
+          repo: "your-username/tradewithpeerzada.com", // 🔁 replace this
+          branch: "main"
+        },
+        media_folder: "assets/images",
+        public_folder: "/assets/images",
+        collections: [
+          {
+            name: "signals",
+            label: "Trading Signals",
+            folder: "signals",
+            create: true,
+            slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
+            fields: [
+              { label: "Title", name: "title", widget: "string" },
+              { label: "Category", name: "category", widget: "select", options: ["Forex", "Crypto", "Index"] },
+              { label: "Signal Details", name: "body", widget: "markdown" },
+              { label: "Approved", name: "approved", widget: "boolean", default: false }
+            ]
+          }
+        ]
+      };
+      window.CMS.init({ config });
+    </script>
+  </body>
+</html>
