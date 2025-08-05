@@ -7,4 +7,8 @@ url: "https://tradewithpeerzada
 # Needed for StaticCMS + GitHub Pages
 collections_dir: signals
 plugins:
-  - jekyll-feed
+  - jekyll-feebackend:
+  name: github
+  repo: tradewithpeerzada/tradewithpeerzada.com # Path to your GitHub repository
+  # optional, defaults to master
+  # branch: main
